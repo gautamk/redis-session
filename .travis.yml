@@ -1,0 +1,12 @@
+language: python
+python:
+  - "2.7"
+  - "2.6"
+
+# command to install dependencies
+install:
+  - pip install -r requirement_dev.txt
+
+# command to run tests
+script: nosetests
+

@@ -2,3 +2,4 @@
 mockredispy==2.9.0.10
 doublex==1.8.2
 mock==1.0.1
+nose==1.3.4
