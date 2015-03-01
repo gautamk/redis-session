@@ -1,5 +1,8 @@
 import uuid
 
+from redis_session.session import Session
+
+
 __author__ = 'gautam'
 
 
@@ -16,8 +19,9 @@ class SessionManager:
         """
         Create a new session and return its id
         :param kwargs: attributes for the session
-        :return: a string id
+        :return: an instance of the session object
         """
         session_id = uuid.uuid4()
         self.redis_connection.hmset(session_id, kwargs)
-        return session_id
+        return Session(session_id, kwargs)
+
