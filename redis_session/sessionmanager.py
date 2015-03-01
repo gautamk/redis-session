@@ -1,3 +1,5 @@
+import uuid
+
 __author__ = 'gautam'
 
 
@@ -16,4 +18,6 @@ class SessionManager:
         :param kwargs: attributes for the session
         :return: a string id
         """
-        return None
+        session_id = uuid.uuid4()
+        self.redis_connection.hmset(session_id, kwargs)
+        return session_id

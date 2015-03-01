@@ -1,8 +1,11 @@
 import unittest
+
 from mock import patch
 from mockredis import mock_redis_client
 from redis import Redis
+
 from redis_session.sessionmanager import SessionManager
+
 
 __author__ = 'gautam'
 
@@ -16,9 +19,8 @@ class TestSession(unittest.TestCase):
     def tearDown(self):
         pass
 
-
     def test_create_session(self):
-        session_id = self.session_manager.create_session()
+        session_id = self.session_manager.create_session(email="john.doe@email.com")
         self.assertIsNotNone(session_id)
 
 
