@@ -21,5 +21,7 @@ class TestSession(unittest.TestCase):
     def test_create_session(self):
         session_id = self.session_manager.create_session(email="john.doe@email.com")
         self.assertIsNotNone(session_id)
+        session = self.redis_connection.get(session_id)
+        self.assertIsNotNone(session)
 
 
